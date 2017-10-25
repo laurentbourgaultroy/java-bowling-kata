@@ -12,7 +12,6 @@ public class Bowling {
     private static final int ALL_PINS = 10;
 
     public static int score(List<Integer> rolls) {
-        if (rolls.isEmpty()) return 0;
         if (rolls.size() <= 3) return rolls.stream().mapToInt(Integer::intValue).sum();
 
         if (rolls.get(0) == ALL_PINS) {
