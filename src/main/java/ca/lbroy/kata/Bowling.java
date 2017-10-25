@@ -13,26 +13,16 @@ public class Bowling {
 
     public static int score(List<Integer> rolls) {
         if (rolls.isEmpty()) return 0;
+        if (rolls.size() <= 3) return rolls.stream().mapToInt(Integer::intValue).sum();
 
         if (rolls.get(0) == ALL_PINS) {
-            int frameScore = rolls.get(0) + rolls.get(1) + rolls.get(2);
-
-            if (isLastFrame(rolls))return frameScore;
-            else return frameScore + score(rolls.subList(1, rolls.size()));
+            return rolls.get(0) + rolls.get(1) + rolls.get(2) + score(rolls.subList(1, rolls.size()));
         }
 
         if (rolls.get(0) + rolls.get(1) == ALL_PINS) {
-            int frameScore = rolls.get(0) + rolls.get(1) + rolls.get(2);
-
-            if (isLastFrame(rolls))return frameScore;
-            else return frameScore + score(rolls.subList(2, rolls.size()));
+            return rolls.get(0) + rolls.get(1) + rolls.get(2) + score(rolls.subList(2, rolls.size()));
         }
 
         return rolls.get(0) + rolls.get(1) + score(rolls.subList(2, rolls.size()));
     }
-
-    private static boolean isLastFrame(List<Integer> rolls) {
-        return rolls.size() <= 3;
-    }
-
 }
