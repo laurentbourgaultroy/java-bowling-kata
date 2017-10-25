@@ -2,8 +2,6 @@ package ca.lbroy.kata;
 
 import java.util.List;
 
-import static java.lang.Math.min;
-
 /**
  * Copyright 2017 IAAH - All right reserved
  *
@@ -24,7 +22,10 @@ public class Bowling {
         }
 
         if (rolls.get(0) + rolls.get(1) == ALL_PINS) {
-            return rolls.get(0) + rolls.get(1) + rolls.get(2) + score(rolls.subList(2, rolls.size()));
+            int frameScore = rolls.get(0) + rolls.get(1) + rolls.get(2);
+
+            if (isLastFrame(rolls))return frameScore;
+            else return frameScore + score(rolls.subList(2, rolls.size()));
         }
 
         return rolls.get(0) + rolls.get(1) + score(rolls.subList(2, rolls.size()));

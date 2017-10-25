@@ -47,7 +47,12 @@ public class BowlingTest {
     }
 
     @Test
-    public void perfectScore() {
+    public void allStrike() {
         assertEquals("Only strike score", 300, Bowling.score(nCopies(12, 10)));
+    }
+
+    @Test
+    public void allSpare() {
+        assertEquals("Only strike score", 150, Bowling.score(nCopies(21, 5)));
     }
 }
