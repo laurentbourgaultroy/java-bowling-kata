@@ -36,4 +36,18 @@ public class BowlingTest {
         assertEquals("Score with a spare",
                 18, Bowling.score(rolls));
     }
+
+    @Test
+    public void strikeTakeSumOfNextTwoRolls() {
+        List<Integer> rolls = newArrayList(10, 4, 4);
+        rolls.addAll(nCopies(16, 0));
+
+        assertEquals("Score with a strike",
+                26, Bowling.score(rolls));
+    }
+
+    @Test
+    public void perfectScore() {
+        assertEquals("Only strike score", 300, Bowling.score(nCopies(12, 10)));
+    }
 }
