@@ -47,12 +47,12 @@ public class BowlingTest {
     }
 
     @Test
-    public void allStrike() {
+    public void allStrikeScore() {
         assertEquals("Only strike score", 300, Bowling.score(nCopies(12, 10)));
     }
 
     @Test
-    public void allSpare() {
+    public void allSpareScore() {
         assertEquals("Only strike score", 150, Bowling.score(nCopies(21, 5)));
     }
 }
