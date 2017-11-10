@@ -1,4 +1,4 @@
-package ca.lbroy.kata;
+package ca.lbroy.kata.bowling;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Laurent Bourgault-Roy
  */
-public class Bowling {
+public class FuncBowling {
 
     private static final int ALL_PINS = 10;
 
