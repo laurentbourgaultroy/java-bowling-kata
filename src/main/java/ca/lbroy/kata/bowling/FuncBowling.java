@@ -2,6 +2,10 @@ package ca.lbroy.kata.bowling;
 
 import java.util.List;
 
+import static ca.lbroy.kata.bowling.BowlingUtils.head;
+import static ca.lbroy.kata.bowling.BowlingUtils.sum;
+import static ca.lbroy.kata.bowling.BowlingUtils.tail;
+
 /**
  * Copyright 2017 IAAH - All right reserved
  *
@@ -9,20 +13,18 @@ import java.util.List;
  */
 public class FuncBowling {
 
+    private FuncBowling() {
+        // Purely functional implementation
+    }
+
     private static final int ALL_PINS = 10;
 
     public static int score(List<Integer> rolls) {
-        if (isLastFrame(rolls)) {
-            return sum(rolls);
-        }
+        if (isLastFrame(rolls)) return sum(rolls);
 
-        if (isStrike(rolls)) {
-            return sum(head(rolls, 3)) + score(tail(rolls, 1));
-        }
+        if (isStrike(rolls)) return sum(head(rolls, 3)) + score(tail(rolls, 1));
 
-        if (isSpare(rolls)) {
-            return sum(head(rolls, 3)) + score(tail(rolls, 2));
-        }
+        if (isSpare(rolls)) return sum(head(rolls, 3)) + score(tail(rolls, 2));
 
         return sum(head(rolls, 2)) + score(tail(rolls, 2));
     }
@@ -39,15 +41,4 @@ public class FuncBowling {
         return rolls.get(0) + rolls.get(1) == ALL_PINS;
     }
 
-    private static int sum(List<Integer> rolls) {
-        return rolls.stream().mapToInt(Integer::intValue).sum();
-    }
-
-    private static List<Integer> head(List<Integer> list, int take) {
-        return list.subList(0, take);
-    }
-
-    private static List<Integer> tail(List<Integer> list, int skip) {
-        return list.subList(skip, list.size());
-    }
 }
