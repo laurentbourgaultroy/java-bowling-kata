@@ -1,6 +1,5 @@
 package ca.lbroy.kata.bowling;
 
-import ca.lbroy.kata.bowling.FuncBowling;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,17 +13,17 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Laurent Bourgault-Roy
  */
-public class FuncBowlingTest {
+public class RecBowlingTest {
     @Test
     public void allGutterIsZero() {
         assertEquals("Only gutter score",
-                0, FuncBowling.score(nCopies(20, 0)));
+                0, RecBowling.score(nCopies(20, 0)));
     }
 
     @Test
     public void standardIsSumOfRolls() {
         assertEquals("Only one pin rolls",
-                20, FuncBowling.score(nCopies(20, 1)));
+                20, RecBowling.score(nCopies(20, 1)));
     }
 
     @Test
@@ -33,7 +32,7 @@ public class FuncBowlingTest {
         rolls.addAll(nCopies(17, 0));
 
         assertEquals("Score with a spare",
-                18, FuncBowling.score(rolls));
+                18, RecBowling.score(rolls));
     }
 
     @Test
@@ -42,16 +41,16 @@ public class FuncBowlingTest {
         rolls.addAll(nCopies(16, 0));
 
         assertEquals("Score with a strike",
-                26, FuncBowling.score(rolls));
+                26, RecBowling.score(rolls));
     }
 
     @Test
     public void allStrikeScore() {
-        assertEquals("Only strike score", 300, FuncBowling.score(nCopies(12, 10)));
+        assertEquals("Only strike score", 300, RecBowling.score(nCopies(12, 10)));
     }
 
     @Test
     public void allSpareScore() {
-        assertEquals("Only strike score", 150, FuncBowling.score(nCopies(21, 5)));
+        assertEquals("Only strike score", 150, RecBowling.score(nCopies(21, 5)));
     }
 }

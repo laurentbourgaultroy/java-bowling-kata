@@ -10,13 +10,13 @@ import static com.google.common.collect.Lists.newArrayList;
  *
  * @author Laurent Bourgault-Roy
  */
-public class StateBowling {
+public class OOBowling {
 
     public static final int GAME_FRAMES = 10;
     private List<Frame> frames = newArrayList(new Frame());
     private Frame activeFrame;
 
-    public StateBowling() {
+    public OOBowling() {
         activeFrame = new Frame();
         frames = newArrayList(activeFrame);
     }

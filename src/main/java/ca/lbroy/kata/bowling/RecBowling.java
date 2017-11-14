@@ -11,9 +11,9 @@ import static ca.lbroy.kata.bowling.BowlingUtils.tail;
  *
  * @author Laurent Bourgault-Roy
  */
-public class FuncBowling {
+public class RecBowling {
 
-    private FuncBowling() {
+    private RecBowling() {
         // Purely functional implementation
     }
 

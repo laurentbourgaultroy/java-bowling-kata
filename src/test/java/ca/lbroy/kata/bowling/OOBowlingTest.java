@@ -1,6 +1,5 @@
 package ca.lbroy.kata.bowling;
 
-import ca.lbroy.kata.bowling.StateBowling;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,13 +10,13 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Laurent Bourgault-Roy
  */
-public class StateBowlingTest {
+public class OOBowlingTest {
 
-    private StateBowling bowling;
+    private OOBowling bowling;
 
     @Before
     public void createGame() {
-        bowling = new StateBowling();
+        bowling = new OOBowling();
     }
 
     @Test
@@ -65,7 +64,7 @@ public class StateBowlingTest {
 
     @Test
     public void hasScoreAccordingToRoll() {
-        StateBowling.Frame frame = new StateBowling.Frame();
+        OOBowling.Frame frame = new OOBowling.Frame();
         assertEquals("Frame with no roll", 0, frame.score());
 
         frame.addRoll(1);
@@ -77,15 +76,15 @@ public class StateBowlingTest {
 
     @Test
     public void FrameStopSavingRollsWhenNotActive() {
-        StateBowling.Frame standardFrame = new StateBowling.Frame();
+        OOBowling.Frame standardFrame = new OOBowling.Frame();
         for (int i = 0; i < 4; i++) standardFrame.addRoll(1);
         assertEquals("Full standard frame", 2, standardFrame.score());
 
-        StateBowling.Frame spareFrame = new StateBowling.Frame();
+        OOBowling.Frame spareFrame = new OOBowling.Frame();
         for (int i = 0; i < 4; i++) spareFrame.addRoll(5);
         assertEquals("Full spare frame", 15, spareFrame.score());
 
-        StateBowling.Frame strikeFrame = new StateBowling.Frame();
+        OOBowling.Frame strikeFrame = new OOBowling.Frame();
         for (int i = 0; i < 4; i++) strikeFrame.addRoll(10);
         assertEquals("Full spare frame", 30, strikeFrame.score());
     }
