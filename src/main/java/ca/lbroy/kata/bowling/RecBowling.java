@@ -2,9 +2,9 @@ package ca.lbroy.kata.bowling;
 
 import java.util.List;
 
-import static ca.lbroy.kata.bowling.BowlingUtils.head;
-import static ca.lbroy.kata.bowling.BowlingUtils.sum;
-import static ca.lbroy.kata.bowling.BowlingUtils.tail;
+import static ca.lbroy.kata.bowling.Utils.head;
+import static ca.lbroy.kata.bowling.Utils.sum;
+import static ca.lbroy.kata.bowling.Utils.tail;
 
 /**
  * Copyright 2017 IAAH - All right reserved

@@ -7,13 +7,13 @@ import java.util.List;
  *
  * @author Laurent Bourgault-Roy
  */
-public class BowlingUtils {
-    private BowlingUtils() {
+public class Utils {
+    private Utils() {
         // Static method helper
     }
 
-    static int sum(List<Integer> rolls) {
-        return rolls.stream().mapToInt(Integer::intValue).sum();
+    static int sum(List<Integer> values) {
+        return values.stream().mapToInt(Integer::intValue).sum();
     }
 
     static <T> List<T> head(List<T> list, int take) {

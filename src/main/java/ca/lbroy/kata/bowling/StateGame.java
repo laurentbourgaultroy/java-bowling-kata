@@ -81,7 +81,7 @@ public class StateGame {
     }
 
     private static class SecondRollFrame extends Frame {
-        protected final int previousPins;
+        private final int previousPins;
 
         private SecondRollFrame(int index, int downedPins) {
             super(index);
