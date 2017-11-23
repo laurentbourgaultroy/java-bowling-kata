@@ -7,24 +7,24 @@ import static java.lang.Math.max;
  *
  * @author Laurent Bourgault-Roy
  */
-public class StateGame {
+public class StateBowling {
 
     private final Bonus bonus;
     private final int score;
     private final Frame frame;
 
-    private StateGame(Frame frame, Bonus bonus, int score) {
+    private StateBowling(Frame frame, Bonus bonus, int score) {
         this.score = score;
         this.frame = frame;
         this.bonus = bonus;
     }
 
-    public static StateGame start() {
-        return new StateGame(Frame.start(), Bonus.start(), 0);
+    public static StateBowling start() {
+        return new StateBowling(Frame.start(), Bonus.start(), 0);
     }
 
-    public StateGame addRoll(int pins) {
-        return new StateGame(
+    public StateBowling addRoll(int pins) {
+        return new StateBowling(
                 frame.addRoll(pins),
                 frame.updateBonus(bonus, pins),
                 score + pins * scoreMultiplier()

@@ -9,15 +9,15 @@ import static org.junit.Assert.assertEquals;
  *
  * @author Laurent Bourgault-Roy
  */
-public class StateGameTest {
+public class StateBowlingTest {
     @Test
     public void allGutterGame() {
-        StateGame allGutterGame = addManyRoll(StateGame.start(), 20, 0);
+        StateBowling allGutterGame = addManyRoll(StateBowling.start(), 20, 0);
 
         assertEquals("All gutter game", 0, allGutterGame.score());
     }
 
-    private StateGame addManyRoll(StateGame gameStatus, int rollCount, int pins) {
+    private StateBowling addManyRoll(StateBowling gameStatus, int rollCount, int pins) {
         for (int i = 0; i < rollCount; i++) {
             gameStatus = gameStatus.addRoll(pins);
         }
@@ -26,7 +26,7 @@ public class StateGameTest {
 
     @Test
     public void onePinPerRollGame() {
-        StateGame gameStatus = StateGame.start();
+        StateBowling gameStatus = StateBowling.start();
         gameStatus = addManyRoll(gameStatus, 20, 1);
 
         assertEquals("All gutter game", 20, gameStatus.score());
@@ -34,33 +34,33 @@ public class StateGameTest {
 
     @Test
     public void oneSpareGame() {
-        StateGame oneSpare = addManyRoll(StateGame.start(), 3, 5);
-        StateGame completedGame = addManyRoll(oneSpare, 17, 0);
+        StateBowling oneSpare = addManyRoll(StateBowling.start(), 3, 5);
+        StateBowling completedGame = addManyRoll(oneSpare, 17, 0);
 
         assertEquals("One spare game", 20, completedGame.score());
     }
 
     @Test
     public void allSpareGame() {
-        StateGame allSpareGame = addManyRoll(StateGame.start(), 21, 5);
+        StateBowling allSpareGame = addManyRoll(StateBowling.start(), 21, 5);
 
         assertEquals("One spare game", 150, allSpareGame.score());
     }
 
     @Test
     public void oneStrikeGame() {
-        StateGame oneStrike = StateGame.start()
+        StateBowling oneStrike = StateBowling.start()
                 .addRoll(10)
                 .addRoll(4)
                 .addRoll(4);
-        StateGame oneStrikeCompleted = addManyRoll(oneStrike, 16, 0);
+        StateBowling oneStrikeCompleted = addManyRoll(oneStrike, 16, 0);
 
         assertEquals("One strike game", 26, oneStrikeCompleted.score());
     }
 
     @Test
     public void allStrikeGame() {
-        StateGame allStrikeGame = addManyRoll(StateGame.start(), 12, 10);
+        StateBowling allStrikeGame = addManyRoll(StateBowling.start(), 12, 10);
 
         assertEquals("One strike game", 300, allStrikeGame.score());
     }
